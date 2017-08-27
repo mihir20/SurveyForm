@@ -8,18 +8,18 @@ public class SurveyFormData {
 
     public String mName;
     public String mAddress;
-    public int mAge;
+    public String mAge;
     public String mMarried;
     public String mPwd;
     public String mEducation;
     public String mIncome;
-    public int mAge1;
-    public int mAge2;
-    public int mAge3;
-    public int mAge4;
-    public int mAge5;
-    public int mTotal;
-    SurveyFormData(String name, String address, int age, String married, String pwd, String education, String income, int age1,int age2, int age3, int age4, int age5, int total){
+    public String mAge1;
+    public String mAge2;
+    public String mAge3;
+    public String mAge4;
+    public String mAge5;
+    public String mTotal;
+    SurveyFormData(String name, String address, String age, String married, String pwd, String education, String income, String age1,String age2, String age3, String age4, String age5, String total){
         mName = name;
         mAddress = address;
         mAge = age;
@@ -28,10 +28,10 @@ public class SurveyFormData {
         mAge3 = age3;
         mAge4 = age4;
         mAge5 = age5;
-        mTotal = total;
         mMarried = married;
         mPwd = pwd;
         mEducation = education;
+        mTotal=total;
         mIncome = income;
     }
     public String getName(){return mName;}
@@ -40,11 +40,11 @@ public class SurveyFormData {
     public String getPwdStatus(){return mPwd;}
     public String getEducationStatus(){return mEducation;}
     public String getIncome(){return mIncome;}
-    public int getAge(){return mAge;}
-    public int getAge1(){return mAge1;}
-    public int getAge2(){return mAge2;}
-    public int getAge3(){return mAge3;}
-    public int getAge4(){return mAge4;}
-    public int getAge5(){return mAge5;}
-    public int getTotal(){return mTotal;}
+    public String getAge(){return mAge;}
+    public String getAge1(){return mAge1;}
+    public String getAge2(){return mAge2;}
+    public String getAge3(){return mAge3;}
+    public String getAge4(){return mAge4;}
+    public String getAge5(){return mAge5;}
+    public String getTotal(){return mTotal;}
 }

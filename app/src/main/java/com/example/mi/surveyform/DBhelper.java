@@ -31,18 +31,18 @@ public class DBhelper extends SQLiteOpenHelper {
 
 
     public DBhelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, DATABASE_NAME, factory, dbVersion);
+        super(context, name, factory, version);
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String query = "CREATE TABLE " + TABLE_SURVEYDATA + "(" +
-                COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                COLUMN_NAME + " TEXT " + COLUMN_ADDRESS + " TEXT " + COLUMN_AGE + " TEXT " +
-                COLUMN_MARRIED + " TEXT " + COLUMN_PWD + " TEXT " + COLUMN_EDUCATION + " TEXT " +
-                COLUMN_INCOME + " TEXT " + COLUMN_AGE1 + " TEXT " + COLUMN_AGE2 + " TEXT " +
-                COLUMN_AGE3 + " TEXT " + COLUMN_AGE4 + " TEXT " + COLUMN_AGE5 + " TEXT " +
-                COLUMN_TOTAL + " TEXT " +
+                COLUMN_ID + " INTEGER PRIMARY KEY," +
+                COLUMN_NAME + " TEXT," + COLUMN_ADDRESS + " TEXT," + COLUMN_AGE + " TEXT," +
+                COLUMN_MARRIED + " TEXT," + COLUMN_PWD + " TEXT," + COLUMN_EDUCATION + " TEXT," +
+                COLUMN_INCOME + " TEXT," + COLUMN_AGE1 + " TEXT," + COLUMN_AGE2 +" TEXT," +
+                COLUMN_AGE3 + " TEXT," + COLUMN_AGE4 + " TEXT," + COLUMN_AGE5 + " TEXT," +
+                COLUMN_TOTAL + " TEXT" +
                 ");";
         sqLiteDatabase.execSQL(query);
     }

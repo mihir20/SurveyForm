@@ -12,8 +12,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DBhelper extends SQLiteOpenHelper {
 
     private static int dbVersion = 1;
-    private static final String DATABASE_NAME = "productDB.db";
-    public static final String TABLE_SURVEYDATA = "surveydata";
+    private static final String DATABASE_NAME = "SurveyDataBase.db";
+    public static final String TABLE_SURVEYDATA = "surveydatabase";
     public static final String COLUMN_ID = "_id";
     public static final String COLUMN_NAME = "Name";
     public static final String COLUMN_ADDRESS = "Adress";
@@ -31,18 +31,18 @@ public class DBhelper extends SQLiteOpenHelper {
 
 
     public DBhelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, DATABASE_NAME, factory, dbVersion);
+        super(context, name, factory, version);
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String query = "CREATE TABLE " + TABLE_SURVEYDATA + "(" +
-                COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                COLUMN_NAME + " TEXT " + COLUMN_ADDRESS + " TEXT " + COLUMN_AGE + " TEXT " +
-                COLUMN_MARRIED + " TEXT " + COLUMN_PWD + " TEXT " + COLUMN_EDUCATION + " TEXT " +
-                COLUMN_INCOME + " TEXT " + COLUMN_AGE1 + " TEXT " + COLUMN_AGE2 + " TEXT " +
-                COLUMN_AGE3 + " TEXT " + COLUMN_AGE4 + " TEXT " + COLUMN_AGE5 + " TEXT " +
-                COLUMN_TOTAL + " TEXT " +
+                COLUMN_ID + " INTEGER PRIMARY KEY," +
+                COLUMN_NAME + " TEXT," + COLUMN_ADDRESS + " TEXT," + COLUMN_AGE + " TEXT," +
+                COLUMN_MARRIED + " TEXT," + COLUMN_PWD + " TEXT," + COLUMN_EDUCATION + " TEXT," +
+                COLUMN_INCOME + " TEXT," + COLUMN_AGE1 + " TEXT," + COLUMN_AGE2 +" TEXT," +
+                COLUMN_AGE3 + " TEXT," + COLUMN_AGE4 + " TEXT," + COLUMN_AGE5 + " TEXT," +
+                COLUMN_TOTAL + " TEXT" +
                 ");";
         sqLiteDatabase.execSQL(query);
     }

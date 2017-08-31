@@ -13,7 +13,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="17"
-            android:inputType="textPersonName"
+            android:inputType="textNoSuggestions"
             android:selectAllOnFocus="false"
             android:text="Name: " />
     <EditText
@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="17"
-        android:inputType="textPersonName"
+        android:inputType="textNoSuggestions"
         android:selectAllOnFocus="false"
         android:text="Address: "
         android:maxLines="1"

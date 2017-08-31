@@ -2,6 +2,7 @@ package com.example.mi.surveyform;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -53,7 +54,7 @@ public class DBhelper extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 
-    public void addProduct(SurveyFormData data) {
+    public void addToSurveyDatabase(SurveyFormData data) {
         ContentValues values = new ContentValues();
         values.put(COLUMN_NAME, data.getName());
         values.put(COLUMN_ADDRESS, data.getAddress());
@@ -72,5 +73,12 @@ public class DBhelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
         db.insert(TABLE_SURVEYDATA, null, values);
         db.close();
+    }
+
+    public Cursor getDataFromDatabase(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res = db.rawQuery("select * from " + TABLE_SURVEYDATA + " ",
+                null);
+        return res;
     }
 }

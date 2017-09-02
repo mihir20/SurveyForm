@@ -38,7 +38,7 @@ public class DBhelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String query = "CREATE TABLE " + TABLE_SURVEYDATA + "(" +
-                COLUMN_ID + " INTEGER PRIMARY KEY," +
+                COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 COLUMN_NAME + " TEXT," + COLUMN_ADDRESS + " TEXT," + COLUMN_AGE + " TEXT," +
                 COLUMN_MARRIED + " TEXT," + COLUMN_PWD + " TEXT," + COLUMN_EDUCATION + " TEXT," +
                 COLUMN_INCOME + " TEXT," + COLUMN_AGE1 + " TEXT," + COLUMN_AGE2 +" TEXT," +
@@ -77,7 +77,7 @@ public class DBhelper extends SQLiteOpenHelper {
 
     public Cursor getDataFromDatabase(){
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res = db.rawQuery("select * from " + TABLE_SURVEYDATA + " ",
+        Cursor res = db.rawQuery("SELECT * FROM "+ TABLE_SURVEYDATA +" WHERE   "+COLUMN_ID+" = (SELECT MAX("+COLUMN_ID+")  FROM " + TABLE_SURVEYDATA +" );",
                 null);
         return res;
     }

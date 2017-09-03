@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 /**
  * Created by mi on 26/8/17.
@@ -12,7 +13,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBhelper extends SQLiteOpenHelper {
 
-    private static int dbVersion = 1;
+    private static int DB_VERSION = 1;
     private static final String DATABASE_NAME = "SurveyDataBase.db";
     public static final String TABLE_SURVEYDATA = "surveydatabase";
     public static final String COLUMN_ID = "_id";
@@ -31,8 +32,8 @@ public class DBhelper extends SQLiteOpenHelper {
     public static final String COLUMN_TOTAL = "total";
 
 
-    public DBhelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
+    public DBhelper(Context context) {
+        super(context, DATABASE_NAME, null, DB_VERSION);
     }
 
     @Override
@@ -41,7 +42,7 @@ public class DBhelper extends SQLiteOpenHelper {
                 COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 COLUMN_NAME + " TEXT," + COLUMN_ADDRESS + " TEXT," + COLUMN_AGE + " TEXT," +
                 COLUMN_MARRIED + " TEXT," + COLUMN_PWD + " TEXT," + COLUMN_EDUCATION + " TEXT," +
-                COLUMN_INCOME + " TEXT," + COLUMN_AGE1 + " TEXT," + COLUMN_AGE2 +" TEXT," +
+                COLUMN_INCOME + " TEXT," + COLUMN_AGE1 + " TEXT," + COLUMN_AGE2 + " TEXT," +
                 COLUMN_AGE3 + " TEXT," + COLUMN_AGE4 + " TEXT," + COLUMN_AGE5 + " TEXT," +
                 COLUMN_TOTAL + " TEXT" +
                 ");";
@@ -71,14 +72,14 @@ public class DBhelper extends SQLiteOpenHelper {
         values.put(COLUMN_TOTAL, data.getTotal());
 
         SQLiteDatabase db = getWritableDatabase();
-        db.insert(TABLE_SURVEYDATA, null, values);
+        long id = db.insert(TABLE_SURVEYDATA, null, values);
+        Log.d("ID:", String.valueOf(id));
         db.close();
     }
 
-    public Cursor getDataFromDatabase(){
+    public Cursor getDataFromDatabase() {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res = db.rawQuery("SELECT * FROM "+ TABLE_SURVEYDATA +" WHERE   "+COLUMN_ID+" = (SELECT MAX("+COLUMN_ID+")  FROM " + TABLE_SURVEYDATA +" );",
+        return db.rawQuery("select * from " + TABLE_SURVEYDATA + " ",
                 null);
-        return res;
     }
 }

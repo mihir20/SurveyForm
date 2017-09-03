@@ -15,7 +15,7 @@
             android:ems="17"
             android:inputType="textNoSuggestions"
             android:selectAllOnFocus="false"
-            android:text="Name: " />
+            android:text="Name" />
     <EditText
         android:id="@+id/AddressId"
         android:layout_width="wrap_content"
@@ -192,5 +192,12 @@
         android:layout_height="wrap_content"
         android:text="Save"
         />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="location of Excel File"
+        android:layout_marginTop="16dp"/>
 
 </LinearLayout>

@@ -8,14 +8,14 @@
     android:orientation="vertical"
     android:layout_marginLeft="8dp"
     >
-        <EditText
+    <EditText
             android:id="@+id/NameId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="17"
             android:inputType="textNoSuggestions"
             android:selectAllOnFocus="false"
-            android:text="Name" />
+            android:hint="Name: " />
     <EditText
         android:id="@+id/AddressId"
         android:layout_width="wrap_content"
@@ -23,7 +23,7 @@
         android:ems="17"
         android:inputType="textNoSuggestions"
         android:selectAllOnFocus="false"
-        android:text="Address: "
+        android:hint="Address: "
         android:maxLines="1"
         android:ellipsize="end"/>
 

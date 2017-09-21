@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
+//save data in database and dump it to excel
     public void saveData(View v) {
         SurveyFormData data = new SurveyFormData(nameText.getText().toString(),
                 addressText.getText().toString(),
@@ -116,12 +116,15 @@ public class MainActivity extends AppCompatActivity {
 
         addToExcel(mCursor);
 
-        nameText.setText("Name: ");
-        addressText.setText("Address: ");
+
+        nameText.setHint("Name: ");
+        nameText.setText(null);
+        addressText.setHint("Address: ");
+        addressText.setText(null);
 
 
     }
-
+//dump data to excel sheet
     public void addToExcel(Cursor myCursor) {
 
 
@@ -160,7 +163,6 @@ public class MainActivity extends AppCompatActivity {
             sheet.addCell(new Label(11, 0, "60+"));
             sheet.addCell(new Label(12, 0, "total"));
 
-            //demo
 
 
             if (myCursor.moveToFirst()) {
